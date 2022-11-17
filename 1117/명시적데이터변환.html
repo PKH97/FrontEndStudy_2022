@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>명시적데이터형</title>
+  </head>
+
+  <body>
+    <script>
+        "use strict";
+        /*
+        명시적 타입 변환
+            Number() : 문자를 숫자로 변환
+            String() : 숫자나 불린등을 문자형으로 변환
+            Boolean() : 문자나 숫자등을 불린형으로 변환
+            Object() : 모든 자료형을 객체형으로 변환
+            parseInt() : 문자형을 int형으로 변환
+            parseFloat() : 문자형을 float형으로 변환
+        */
+        const num1 ="10";
+        const num2 ="5";
+
+        console.log(`현재 num1의 타입: ${typeof num1}`)
+        console.log(`num1 + num2 = ${num1 + num2}`) // 문자결합
+        console.log(`Number(num1) + Number(num2) = ${Number(num1) + Number(num2)}`) // = 연산처리
+        console.log(`Numbe(num1 + num2) = ${Number(num1 + num2)}`) // = 문자열결합
+
+
+
+    </script>
+  </body>
+</html>

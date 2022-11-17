@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>underfind_null</title>
+  </head>
+
+  <body>
+    <script>
+      "use strict";
+      let num;
+      console.log(num); //-> underfind
+      console.log(typeof(num)); //-> underfind
+      
+      let obj1 = null;
+      console.log(obj1); //-> null
+      console.log(typeof(obj1)); //-> object
+
+      let obj2 = {};
+      console.log(obj2); //-> {} : 객체를 의미
+      console.log(typeof(obj2)); //-> object
+    </script>
+  </body>
+</html>

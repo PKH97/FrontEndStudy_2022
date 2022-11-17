@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>암시적데이터형</title>
+  </head>
+
+  <body>
+    <script>
+        "use strict";
+        /*
+        암시적 타입 변환
+            타입의 값을 기대하는 곳에 다른 타입의 값이 오면 자동으로
+            타입을 변환해서 사용합니다.
+        */
+        const a = 10 + "문자열";
+        console.log(typeof(a)); // -> String
+
+        const b = "3" * "5";
+        console.log(typeof(b)); // -> Number
+        console.log(b) // -> 15
+
+        const c = 10 - "문자열";
+        console.log(typeof(c)); // -> Number
+
+    </script>
+  </body>
+</html>

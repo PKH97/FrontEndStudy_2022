@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>변수</title>
+  </head>
+
+  <body>
+    <script>
+        /*
+        변수(variable):
+            변수란 데이터를 저장할 수 있는 메모리 공간을 의미합니다.
+            값이 변경될 수 있으며 자바스크립트에서는 let 키워드를 사용하여
+            변수를 선언하고 선언되지 않은 변수를 사용하거나 접근하려고 하면
+            오류발생.
+
+        let 변수명; // 변수선언(== var 변수명;)
+        변수명 = 값; // 변수를 초기화
+        */
+       
+        'use strict'; //엄격형으로 선언
+        var num;
+        num = 10;
+        console.log(num); // 변수를 선택 -> 변수안의 값이 출력
+        console.log('num'); // 문자열로 선택 -> 변수명이 출력
+
+        var num2;
+        console.log(num2); //-> underfined 변수값을 찾을 수 없다.
+
+        // num3 = 20;
+        // console.log(num3); // -> error 변수로 선언을 안했기 때문에 발생
+        
+        var num2;
+        num2 = 20; //  >>> 숫자형 데이터 <<<
+        console.log(num2); // -> 20
+
+        let name;
+        name = "김사과"; // >>> 문자형 데이터 <<<
+        console.log(name);
+
+        /*
+        변수를 만드는 규칙
+            1. 영문자, 숫자, _ , $를 조합해서 사용할 수 있다.
+            2. 숫자로 시작할 수 없다.
+            3. 특수문자는  _ , $만 사용가능 하다.
+            4. 공백은 허용되지 않는다.
+            5. 자바스크립트 문법안에 규정된 예약어는 변수로 사용할 수 없다.
+        */
+    </script>
+
+  </body>
+
+</html>
