@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <script>
+        "use strict";
+        const num1 = 3;
+        const num2 = 5;
+        const str1 = "3";
+        const str2 = "abcde";
+        const str3 = "bcd";
+
+        let result = num1 > num2; // 3 > 5 => false
+        console.log(`num1 > num2 : ${result}`);
+
+        result = str2 <= str3; //"abcde" <= "bcd" -- -> true
+        document.write(`str2 <= str3 : ${result}`);
+
+        result = num1 == str1; // 3 == "3" -- -> true
+        console.log(`num1 == str1 : ${result}`);
+        
+        result = num1 === str1; // 3 === "3" -- -> false
+        console.log(`num1 === str1 : ${result}`);
+        
+        result = num1 != str1; // 같지않다에 대한 공식이 거짓 false
+        console.log(`num1 != str1 : ${result}`);
+        
+        result = num1 !== str1; // true
+        console.log(`num1 !== str1 : ${result}`);
+
+        </script>
+  </body>
+  </html>
+  
+  
+  <!-- 
+      >
+      <
+          >=
+          <=
+          ==
+          ===
+          
+          num1 = num2; //100 == '100' => true 값 동일
+          num1 != num2;
+          num1 === num2; //100 =='100' => false 값과 데이터타입 동일
+          num1 !== num2;
+ -->

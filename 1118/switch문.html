@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        'use strict';
+        let input = prompt('아동, 청소년, 성인 중 선택');
+
+        switch(input){
+            case '아동':
+                input += ': 입장료 무료';
+                break; // switch문 또는 반복문의 블록을 빠져나감
+            case '청소년':
+                input += ': 입장료 2,000원';
+                break;
+            case '성인':
+                input += ': 입장료 5,000원';
+                break;
+            default:
+                alert('입력한 값을 확인하세요');
+                input = '입력한 값을 확인하세요';
+        }
+        console.log(input);
+    </script>
+</body>
+</html>
