@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function fun1(num){
+            console.log(`전달받은 매개변수의 값은 ${num}입니다.`);
+        }
+
+        function fun2(start, end){
+            let sum = 0;
+            for(let i = start; i <= end; i++){
+                sum += i;
+            }
+            console.log(`${start}부터 ${end}까지의 총합은 ${sum}입니다.`);
+        }
+
+        fun1(10);
+        fun1(5); 
+
+        fun2(1, 100);
+        fun2(10, 20);
+    </script>
+</body>
+</html>

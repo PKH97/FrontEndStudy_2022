@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+        "use strict";
+        //입력한 배열에 갯수를 확인
+        const cnt = Number(prompt("입력받을 숫자의 개수를 입력하세요"));
+        let idx = 0;
+        let arr = [];
+
+        //배열요소입력
+        while (idx < cnt) {
+            arr[idx] = Number(prompt(`${idx + 1}번째 숫자를 입력하세요`));
+            idx++;
+        }
+
+        /* 90 50 40 100 60을 입력 */
+        let max = arr[0];
+        let min = arr[0];
+
+        //비교를 하기 위한 제어문
+        for(let i = 1; i < arr.length; i++){
+            if(max < arr[i]){ // -> 90 < [50,40,100,60]
+                max = arr[i]; // -> 100
+            }
+            if(min > arr[i]){ // -> 90 > [50,40,100,60]
+                min = arr[i]; // -> 40
+            }
+        }
+        console.log(`입력한 수 ${arr}에서 가장 큰 값은 ${max}입니다.`);
+        console.log(`입력한 수 ${arr}에서 가장 작은 값은 ${min}입니다.`);
+    </script>
+  </body>
+</html>
