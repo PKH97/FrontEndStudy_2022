@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box {
+            margin-top: 50px;
+            width: 300px;
+            height: 300px;
+            border: 2px solid #000;
+        }
+    </style>
+    <script src="./js/jquery.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('.show').click(function(){
+                $('#box')
+                    .stop() // -> 동작의 제약을 걸어 클릭한번에 하나의 동작만 하게 한다.
+                    .delay(2000)
+                    .css({ width: '100px'})
+                    .animate({ width: '1000px', fontSize: '50px'}, 5000)
+            })
+            $('.hide').click(function(){
+                $('#box')
+                    .stop()
+                    .css({ height: '100px'})
+                    .animate({ height: '1000px', fontSize: '50px'}, 5000)
+            })
+            var img = '<img src="이미지경로" alt="대체글">'
+        });
+    </script>
+
+</head>
+
+<body>
+    <div id="control" style="height: 100px;">
+        <input type="button" value="show" class="show">
+        <input type="button" value="hide" class="hide">
+    </div>
+
+    <div id="wrapper">
+        <div id="box">
+            box
+        </div>
+    </div>
+</body>
+</html>

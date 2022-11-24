@@ -20,11 +20,38 @@
             console.log(`${start}부터 ${end}까지의 총합은 ${sum}입니다.`);
         }
 
+        function fun3(num1 = 1, num2 = 1){
+            console.log(`${num1} + ${num2} = ${num1 + num2}`);
+            console.log(`${num1} - ${num2} = ${num1 - num2}`);
+            console.log(`${num1} * ${num2} = ${num1 * num2}`);
+            console.log(`${num1} / ${num2} = ${num1 / num2}`);
+        }
+
+        function fun4(num1, num2, ...num3){ // ...num2 -> 배열
+            console.log(`num1의 값: ${num1}`);
+            console.log(`num2의 값: ${num2}`);
+            console.log(`num3의 값: ${num3}`);
+        }
+
+        function fun5(...jumsu){
+            for(let i of jumsu){
+                console.log(i);
+            }
+        }
+
         fun1(10);
         fun1(5); 
 
         fun2(1, 100);
         fun2(10, 20);
+
+        fun3(5, 3);
+        fun3();
+
+        fun4(100, 90, 40, 50, 80, 90, 30);
+        
+        fun5(100, 90, 40, 50, 80, 90, 30);
+        
     </script>
 </body>
 </html>

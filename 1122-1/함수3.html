@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        'use strict';
+        function getHello(){
+            return 'Hello :)';
+        }
+
+        function getSum(num1, num2){
+            return num1 + num2;
+        }
+    </script>
+</head>
+
+<body>
+    <script>
+        'use strict';
+//        console.log(getHello()); 
+        //getHello()-> 함수 실행, getHello -> 함수 내용 출력 //()의 존재에 유의할 것
+        const msg = getHello();
+        console.log(msg);
+        
+        const sum = getSum(10, 3);
+        console.log(sum);
+
+
+    </script>
+</body>
+</html>

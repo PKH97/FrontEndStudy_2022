@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box {
+            margin-top: 50px;
+            width: 300px;
+            height: 300px;
+            border: 2px solid #000;
+        }
+    </style>
+    <script src="./js/jquery.js"></script>
+    <script>
+        $(document).ready(function () {
+            /* 기준점 
+            $('.hide').click(function(){
+                $('#box').hide(500);
+                // $('#box').css({ display : 'none' })
+            })
+            $('.show').click(function(){
+                $('#box').show(1000); //1초 = 1000
+                // $('#box').css({ display : 'block' })
+            })
+            $('.toggle').click(function(){
+                $('#box').toggle(1000);
+            })
+            */
+            /* 위아래
+            $('.hide').click(function(){
+                $('#box').slideUp(500);
+            })
+            $('.show').click(function(){
+                $('#box').slideDown(500);
+            })
+            */
+            // 페이드인-아웃
+            $('.hide').click(function(){
+                $('#box').fadeIn(500);
+            })
+            $('.show').click(function(){
+                $('#box').fadeOut(500);
+            })
+        });
+    </script>
+
+</head>
+
+<body>
+    <div id="control">
+        <input type="button" value="show" class="show">
+        <input type="button" value="hide" class="hide">
+        <input type="button" value="toggle" class="toggle">
+    </div>
+
+    <div id="wrapper">
+        <div id="box">
+            
+        </div>
+    </div>
+</body>
+</html>
