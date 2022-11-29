@@ -19,22 +19,33 @@
         }
 
         .mainmn{
-            width: 500px;
-            height: 30px;
+            margin: 100px;
+            width: 100px;
             border: 1px solid #000;
         }
         .mainmn > li{
-            float: left;
             width: 100px;
-            height: 30px;
             text-align: center;
             line-height: 30px;
             position: relative;
         }
+        .mainmn > li > a{
+            display: block;
+            width: 100%;
+            height: 30px;
+            background-color: aquamarine;
+            color: #555;
+            border-bottom: 1px solid #505050;
+            transition: all 0.5s;
+        }
+        .mainmn > li.on > a{
+            display: block;
+            width: 100%;
+            height: 30px;
+            background-color: violet;
+            color: #fff;
+        }
         .submn{
-            position: absolute;
-            top: 30px;
-            left: 0;
             width: 100%;
             border: 1px solid #ccc;
         }
@@ -44,18 +55,38 @@
             text-align: center;
             border-bottom: 1px solid #ccc;
         }
+        .submn li > a{
+            display: block;
+            width: 100%;
+            height: 30px;
+            background-color: #fff;
+        }
+        .submn li.on > a{
+            display: block;
+            width: 100%;
+            height: 30px;
+            background-color: yellowgreen;
+        }
     </style>
     <script src="./js/jquery.js"></script>
     <script>
         $(document).ready(function(){
-            $('.submn').hide(); // 서브 메뉴 숨김
+            $('.submn').hide();// 초기값을 메뉴 숨김
 
-            $('.mainmn > li').click(function(){
-                $('.submn').hide();
-                $(this).find('.submn').show();
-            })
+            $('.mainmn > li > a').click(function(){
+                // $('.submn').hide(); // 서브메뉴 숨김
+                /*each문*/
+                $('.submn').each(function(){ // $('.submn')를 순서대로 순환처리
+                    if($(this).css("display")=="block"){
+                        $(this).hide()
+                    }
+                })
+                // $(this).next('.submn').show();
+                // $(this).next('.submn').slideDown(); // 미끄러지듯 나타남
+                $(this).next('.submn').fadeIn(); // 서서히 나타남
+            });
 
-        })
+        });
     </script>
 </head>
 

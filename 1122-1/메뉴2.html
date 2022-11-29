@@ -31,6 +31,21 @@
             line-height: 30px;
             position: relative;
         }
+        .mainmn > li > a{
+            display: block;
+            width: 100%;
+            height: 30px;
+            background-color: #fff;
+            color: #555;
+            transition: all 0.5s;
+        }
+        .mainmn > li.on > a{
+            display: block;
+            width: 100%;
+            height: 30px;
+            background-color: #a0a0a0;
+            color: #fff;
+        }
         .submn{
             position: absolute;
             top: 30px;
@@ -44,18 +59,54 @@
             text-align: center;
             border-bottom: 1px solid #ccc;
         }
+        /* .submn li:hover > a, */
+        .submn li > a{
+            display: block;
+            width: 100%;
+            height: 30px;
+            background-color: #fff;
+        }
+        .submn li.on > a{
+            display: block;
+            width: 100%;
+            height: 30px;
+            background-color: #a0a0a0;
+        }
     </style>
     <script src="./js/jquery.js"></script>
     <script>
         $(document).ready(function(){
             $('.submn').hide(); // 서브 메뉴 숨김
+            
+            /* 마우스 이벤트 */
+            $('.mainmn > li').hover(
+                function () {
+                    // $(this).find('.submn').show();
+                    // $(this).find('.submn').slideDown();
+                    $(this).find('.submn').fadeIn();
+                    $(this).addClass('on');
+                }, //버튼위에 마우스가 올라갔을 때
+                function () {
+                    // $(this).find('.submn').hide();
+                    $(this).find('.submn').slideUp();
+                    $(this).removeClass('on');
+                } //버튼위에 마우스가 나갔을 때
+            );
 
-            $('.mainmn > li').click(function(){
-                $('.submn').hide();
-                $(this).find('.submn').show();
-            })
+            $('.submn li').mouseover(
+                function(){
+                    // $(this).addClass('on');
+                    
+                }
+                );
+            $('.submn li').mouseout(
+                function(){
+                    // $(this).removeClass('on');
+                    
+                }
+            );
 
-        })
+        });
     </script>
 </head>
 

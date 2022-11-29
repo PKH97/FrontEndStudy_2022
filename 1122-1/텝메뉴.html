@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>텝메뉴</title>
+    <style>
+        *{
+            margin: 0; 
+            padding: 0;
+        }
+        ul,
+        li{
+            list-style: none;
+        }
+        a{
+            text-decoration: none;
+        }
+        .tabs{
+            width: 500px;
+            height: 550px;
+            border: 1px solid #000;
+            position: relative;
+        }
+        .tabs ul{
+            width: 100%;
+            height: 30px;
+            border-bottom: 1px solid #000;
+        }
+        .tabs ul li{
+            float: left;
+            width: 25%;
+            text-align: center;
+            line-height: 30px;
+        }
+
+        .tabs div{
+            width: 500px;
+            height: 520px;
+            position: absolute;
+            top: 30px;
+            left: 0;
+        }
+        .tabs div.box1{
+            background-color: aquamarine;
+            z-index: 400;
+        }
+        .tabs div.box2{
+            background-color: cornflowerblue;
+            z-index: 300;
+        }
+        .tabs div.box3{
+            background-color: lightcoral;
+            z-index: 200;
+        }
+        .tabs div.box4{
+            background-color: lightsalmon;
+            z-index: 100;
+        }
+    </style>
+    <script src="./js/jquery.js"></script>
+    <script>
+        $(document).ready(function(){
+            $('.tabs div').hide();
+            $('.tabs div').eq(0).show();
+            
+            $('.tabs li').click(function(){
+                let i = $(this).index();
+                console.log(i);
+                
+                $('.tabs div').hide();
+                // $('.tabs div').eq(i).show();
+                // $('.tabs div').eq(i).slideDown();
+                // $('.tabs div').eq(i).fadeIn();
+                $('.tabs div').eq(i).show(700);
+            })
+        })
+    </script>
+</head>
+
+<body>
+    <div class="tabs">
+        <ul>
+            <li>tab1</li>
+            <li>tab2</li>
+            <li>tab3</li>
+            <li>tab4</li>
+        </ul>
+        <div class="box1">box1</div>
+        <div class="box2">box2</div>
+        <div class="box3">box3</div>
+        <div class="box4">box4</div>
+    </div>
+
+</body>
+</html>
