@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>노드의 선택</h2>
+    <p id="item1" class="list">JavaScript</p>
+    <p id="item2">PHP</p>
+    <hr/>
+    <div id="list">
+        <p id="js">node.js</p>
+        <p>rest</p>
+    </div>
+    <hr/>
+    <p id="text">지금 시간은 오전 10시 30분입니다.</p>
+
+    <button onclick="appendNode()">노드추가1</button>
+    <button onclick="insertNode()">노드추가2</button>
+    <button onclick="appendText()">넥스트추가</button>
+
+    <script>
+        'use ctrict';
+        /*
+        const id = document.getElementById('item1');
+        console.log(id); // 오브젝트 -> 유일한 하나만 존재하는 요소
+
+        const button = document.getElementsByTagName('button');
+        console.log(button);
+
+        const list = document.getElementsByClassName('list');
+        console.log(list);
+        */
+
+        /* 아이디선택처럼 오브젝트 */
+        const js = document.querySelector('#js');
+        console.log(js);
+
+        /* 클래스선택자나 태그이름으로 리스트형으로 선택*/
+        const list = document.querySelectorAll('#list > p');
+        console.log(list);
+
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>노드의 추가</h2>
+    <p id="item1" class="list">JavaScript</p>
+    <p id="item2">PHP</p>
+    <hr/>
+    <div id="list">
+        <p id="js">node.js</p>
+        <p>rest</p>
+    </div>
+    <hr/>
+    <p id="text">지금 시간은 오전 10시 30분입니다.</p>
+
+    <button onclick="appendNode()">노드추가1</button>
+    <button onclick="insertNode()">노드추가2</button>
+    <button onclick="appendText()">넥스트추가</button>
+
+    <script>
+        'use ctrict';
+
+        /* 노드추가 */
+        const appendNode = function(){
+            const parent = document.getElementById('list');
+            const newItem = document.getElementById('item1');
+            parent.appendChild(newItem);
+            //-> 대상요소.추가메소드(추가할요소);   
+        }
+
+        /* 노드추가2 */
+        const insertNode = function(){
+            const parent = document.getElementById('list');
+            const newItem = document.getElementById('item2');
+            //추가할 위치에 기준요소
+            const js = document.getElementById('js');
+
+            parent.insertBefore(newItem, js);
+            //->대상요소.추가메소드(추가할요소, 추가할요소의 위치를 기준으로할 요소);
+        }
+
+        /* 글자노드추가 */
+        const appendText = function(){
+            const text = document.getElementById('text').firstChild();
+            text.insertData(7, "아주 잠이오는 시간");
+        // 대상.글자노드추가메소드(위치, "추가될텍스트")
+        }
+
+    </script>
+
+</body>
+</html>

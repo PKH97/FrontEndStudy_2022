@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>프로퍼티</h2>
+    <script>
+       'ues strict'
+
+        const user = {
+            userid: 'apple',
+            name: '김사과',
+            gender: '여자',
+            hp: '01012345678',
+            birthday: '20001211',
+            memberId: function(){
+                return "korea" + this.hp;
+            }
+        }
+        console.log(user.userid);
+        console.log(user.name);
+        console.log(user.gender);
+        console.log(user.hp);
+        console.log(user.birthday);
+        console.log(user.memberId()); //함수실행
+        console.log(user.memberId); //함수코드 출력
+
+    </script>
+</body>
+</html>
