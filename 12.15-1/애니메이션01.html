@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container{
+            margin: 100px;
+        }
+        .ball{
+            width: 30px;
+            height: 30px;
+            background-color: violet;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: all 0.5s;
+        }
+        .effect{
+            transform: scale(2);
+        }
+    </style>
+    <script>
+        // $(document).redy(funtion(){})
+        window.addEventListener('load', function(){
+            const container = document.getElementsByClassName('container')[0];
+            // const ball = document.getElementsByClassName('ball')[0];
+            const ball = container.children[0];
+
+            console.log(container);
+            console.log(ball);
+
+            ball.addEventListener('mouseenter', (e) => {
+                e.target.classList.add('effect'); // 스타일 적용
+            });
+            ball.addEventListener('mouseout', (e) => {
+                e.target.classList.remove('effect'); // 스타일 해제
+            });
+        });
+
+    </script>
+
+</head>
+<body>
+    <div class="container">
+        <div class="ball"></div>
+    </div>
+</body>
+</html>

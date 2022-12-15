@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Math</title>
+</head>
+<body>
+    <h3>Math 객체</h3>
+    <script>
+        'use strict'
+
+        console.log("==============<min&max>===============");
+        console.log(Math.min());
+        console.log(Math.max());
+
+        console.log(Math.min(1,10,-10,1000,0)); //-10
+        console.log(Math.max(1,10,-10,1000,0)); //1000
+
+        console.log(Math.min(1,10,"-10",1000,0)); //-10
+        console.log(Math.min(1,10,-10,"천",0)); //NaN
+        //문자열이 숫자로 표현이 되어있으면 숫자로 인식 / 문자로 표현되면 NaN로 출력
+
+        console.log("==============<round>===============");
+        console.log(Math.round(10.49)); //10
+        console.log(Math.round(10.5)); //11
+        console.log(Math.round(-10.5)); //-10
+        console.log(Math.round(-10.51)); //-11
+
+        console.log("==============<floor>===============");
+        console.log(Math.floor(10.49)); //10
+        console.log(Math.floor(10.5)); //10
+        console.log(Math.floor(-10.5)); //-11
+        console.log(Math.floor(-10.51)); //-11
+
+        console.log("==============<ceil>===============");
+        console.log(Math.ceil(10.49)); //11
+        console.log(Math.ceil(10.5)); //11
+        console.log(Math.ceil(-10.5)); //-10
+        console.log(Math.ceil(-10.51)); //-10
+
+        console.log("==============<random>===============");
+        console.log(Math.random()); // 0에서 1사이에서 1을 뺀 무작위의 값을 생성
+        console.log(Math.random() * 10); // 0에서 10까지
+        console.log(Math.floor(Math.random() * 10)); // 소숫점 아래 버림
+        console.log(Math.floor(Math.random() * 10) + 1); // 10이 나올 수 있다
+
+    </script>
+</body>
+</html>

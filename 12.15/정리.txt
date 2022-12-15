@@ -1,0 +1,79 @@
+자바스크립트 내장 객체
+
+[Math객체]
+Math 객체는 수학에서 자주상요되는 상수와 함수들을 미리 구현해 놓은 자바스크립트 내장 객체입니다.
+
+min()
+    : 최소값을 리턴, 매개변수가 전달되지 않으면 Infinity를 리턴,
+    비교할 수 없는 값이 포함되어 있으면 NaN을 리턴
+max()
+    : 최대값을 리턴, 매개변수가 전달되지 않으면 -Infinity를 리턴,
+    비교할 수 없는 값이 포함되어있으면 NaN을 리턴
+round()
+    :소수점 첫번째 자리에서 반올림하여 리턴
+floor()
+    :소수점 첫번째 자리에서 내림
+ceil()
+    :소수점 첫번째 자리에서 올림
+random()
+    :0보다 크거나 같고 1보다 작은 무작위 소수를 리턴
+    math.random() -> 0 ~ 0.999
+
+[String 객체]
+String 객체는 문자열을 손쉽게 만들고 다룰 수 있도록 합니다.
+
+const str = 'javascipt';
+const str = new String('javascript');
+
+length: 문자열의 길이를 저장
+
+indexOf():
+    매개변수로 전달된 문자열이 처음 등장하는 위치를 리턴
+charAt():
+    매개변수로 전달된 인덱스에 위치한 문자를 리턴
+includes(): 매개변수로 전달된 문자여러이 포함되어 있는지 여부를 리턴
+substring(): 매개변수로 전달된 시작 인덱스부터 종료 인덱스  바로 앞까지 문자열을 추출하여 리턴
+substr(): 매개변수로 전달된 시작 인데스부터 매개변수로 전달된 개수만큼 문자열을 추출하여 리턴
+split(): 매개변수로 전달된 구분자를 기준으로 문자열을 나누 후 하나의 배열에 저장
+replace(): 
+trim():
+toUp
+todown
+
+[Date 객체]
+Date 객체는 날짜, 시간등을 쉽게 처리 할 수 있는 내장객체입니다.
+
+연도(year)
+1. 2자리로 표현: 1900 ~ 1999
+const date = new Date(21, 4, 4); // 1921년
+2. 4자리로 표현: 2000 ~
+const date = new Date(2021, 4, 4); // 2021년
+
+월(month)
+범위 0 ~ 11(1월 ~ 12월)
+const date = new Date(2021, 4, 4); // 2021년 5월 4일
+
+일(day), 시(hour), 분(minute), 초(seconds)
+
+Date 객체를 만드는 방법
+1. new date(): 현제 날짜 시간을 저장하는 객체가 만들어짐(사용자 컴퓨터 기준)
+2. new date("날짜 문자열"): 해당 날짜 시간을 가리키는 객체가 만들어짐
+3. new date("TimeStamp 밀리초"): 1970년 1월 1일 0시 ~ 해당 밀리초만큼 지난 시간의 날짜 개기체가 만들어짐
+4. new date(년, 월, 일, 시, 분, 초, 밀리초): 해당 특정 날짜 시간을 가리키는 객체가 만들어짐
+
+[location 객체]
+location 객체는 현재 브라우저에 표시된 HTML 문서의 주소를 얻거나,
+브라우저에 새 문서를 불러올 때 사용합니다.
+
+href: .URL 전체정보를 리턴, 특정 페이지로 이동
+protocol : 프로토콜 정보를 리턴
+hostname: 호스트 이름과 포트번호를 리턴
+pathname: URL 경로부분의 정보를 리턴
+
+http://www.naver.son/blog/apple.nhn
+protocol hostname         pathname(port)
+
+[document 객체]
+document 객체는 웹 페이지에 존재하는 HTML 요소에 접근하고자 할 때 사용하는 객체.
+
+getElements
