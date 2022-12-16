@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>애니메이션05</title>
+    <style>
+      button {
+        padding: 5px 15px;
+        background-color: #666;
+        color: #000;
+        border: none;
+        cursor: pointer;
+        border-radius: 5px;
+        transition: all 0.5s;
+      }
+      button:hover {
+        background-color: #888;
+      }
+
+      .container {
+        margin-top: 35px;
+      }
+
+      .gallery {
+        margin-top: 60px;
+      }
+      .gallery img {
+        width: 200px;
+      }
+    
+    </style>
+    <script>
+      window.addEventListener("load", () => {
+        const prependBtn = document.getElementById("prepend");
+        const appendBtn = document.getElementById("append");
+        const gallery = document.querySelector(".gallery");
+
+        prependBtn.addEventListener("click", () => {
+          const lastChild = gallery.lastElementChild;
+          console.log(lastChild);
+
+          //노드속성읽기
+          const preSrc = lastChild.getAttribute("src");
+          const preAlt = lastChild.getAttribute("alt");
+          console.log("src: " + preSrc + ", alt: " + preAlt);
+
+          //노드삭제
+          gallery.removeChild(lastChild);
+
+          //노드추가
+          const newNode = document.createElement('img');
+          newNode.setAttribute('src', preSrc);
+          newNode.setAttribute('alt', preAlt);
+
+          gallery.insertBefore(newNode, gallery.firstElementChild);
+        });
+
+        //직접해보기
+        appendBtn.addEventListener('click', () => {
+            const firstChild = gallery.firstElementChild;
+            console.log(firstChild);
+
+            const appnSrc = firstChild.getAttribute("src");
+            const appnAlt = firstChild.getAttribute("alt");
+            console.log("src: " + appnSrc + ", alt: " + appnAlt);
+
+            gallery.removeChild(firstChild);
+
+            const newNode = document.createElement('img');
+            newNode.setAttribute('src', appnSrc);
+            newNode.setAttribute('alt', appnAlt);
+
+            gallery.appendChild(newNode);
+        });
+
+      });
+    </script>
+  </head>
+
+  <body>
+    <div class="container">
+      <button id="prepend" title="prepend">prepend</button>
+      <button id="append" title="append">append</button>
+
+      <div class="gallery">
+        <img src="./images/slide1.jpg" alt="slide1" />
+        <img src="./images/slide2.jpg" alt="slide2" />
+        <img src="./images/slide3.jpg" alt="slide3" />
+        <img src="./images/slide4.jpg" alt="slide4" />
+      </div>
+    </div>
+  </body>
+</html>

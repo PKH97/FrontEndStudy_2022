@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>애니메이션03</title>
+    <style>
+        button{
+            padding: 5px 15px;
+            background-color: #666;
+            color: #000;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: all 0.5s;
+        }
+        button:hover{
+            background-color: #888;
+        }
+
+        .container{
+            margin-top: 35px;
+        }
+
+        .ball{
+            position: absolute;
+            left: 40px;
+            top: 184px;
+            width: 30px;
+            height: 30px;
+            background-color: yellowgreen;
+            border-radius: 50%;
+            transition: all 0.3s;
+        }
+
+    </style>
+    <script>
+        'use strict'; // -> 엄격형(되도록 적는게 좋음.)
+
+        window.addEventListener('load', () => {
+
+            const container = document.getElementsByClassName('container')[0];
+            const buttonList = []; //-> 배열형식으로 저장공간 선언.
+            let ball;
+
+            for(let i = 0; i < container.children.length; i++){
+                //console.log(i); //-> 배열 인덱스값
+                if(container.children[i].tagName == "BUTTON"){ //<- 반드시 대문자로 작성!! 
+                    buttonList.push(container.children[i]);
+                    // ->BUTTON태그만 찾아서 buttonList 배열에 입력
+                }else if(container.children[i].tagName == "DIV"){
+                    ball = container.children[i];
+                }
+            }
+            // console.log(buttonList);
+            // console.log(ball);
+
+            let idName = ""; //-> 클릭했을 때 자신의 아이디명을 저장하는 공간
+            //ball의 초기위치값
+            let x = 40; 
+            let y = 184;
+
+            //버튼에 이벤트를 반복문 활용
+            for(let i = 0; i < buttonList.length; i++){
+                buttonList[i].addEventListener('click', (e) => {
+                    idName = e.target.id // -> $(this)와 같은 의미.
+                    console.log("id: " + idName);
+                    
+                    // if(idName == 'left'){
+                    //     x = x - 20;
+                    // }else if(idName == 'right'){
+                    //     x = x + 20;
+                    // }else if(idName == 'top'){
+                    //     y = y - 20;
+                    // }else if(idName == 'bottom'){
+                    //     y = y + 20;
+                    // }
+
+                    //문제) if -> switch
+                    switch(idName){
+                        case 'left': // -> ()가 아닌 문자열로 지정.
+                            x = x - 20;
+                            break;
+                        case 'right':
+                            x = x + 20;
+                            break;    
+                        case 'top':
+                            y = y - 20;
+                            break;
+                        case 'bottom':
+                            y = y + 20;
+                            break;
+                    }
+                    ball.style.left = x + "px";
+                    ball.style.top = y + "px";
+
+                });
+            }
+        });
+        
+
+    </script>
+</head>
+
+<body>
+    <div class="container">
+        <button id="left">left</button>
+        <button id="right">right</button>
+        <button id="top">top</button>
+        <button id="bottom">bottom</button>
+        <div class="ball"></div>
+    </div>
+</body>
+
+</html>

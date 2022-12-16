@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>애니메이션06</title>
+    <style>
+      button {
+        padding: 5px 15px;
+        background-color: #666;
+        color: #000;
+        border: none;
+        cursor: pointer;
+        border-radius: 5px;
+        transition: all 0.5s;
+      }
+      button:hover {
+        background-color: #888;
+      }
+
+      .container {
+        margin-top: 35px;
+      }
+
+      .ball{
+        position: absolute;
+        left: 40px;
+        top: 184px;
+        width: 30px;
+        height: 30px;
+        background-color: yellowgreen;
+        border-radius: 50%;
+      }
+    </style>
+    <script>
+      window.addEventListener("load", () => {
+        const queue = document.querySelector('#queue');
+        const ball = document.querySelector('.ball');
+        let x = ball.offsetLeft; // 현재 ball의 가로 좌표값
+        let targetx = 400; // 볼이 최종으로 갈 위치값
+
+        queue.addEventListener('click', () => {
+          animate1(ball, x, targetx)
+          /*
+          //애니메이션 함수2
+          const timer = setInterval(function(){
+            if(x < targetx){
+              x += 10; // 10 20 30 ... 증가
+            }else{
+              x = targetx;
+              clearInterval(timer);
+            }
+            ball.style.left = x + "px";
+          }, 10);
+          */
+        });
+
+      });
+
+      //애니메이션 함수1
+      function animate1(target, startx, targetx){ // (대상노드, 시작위치값, 최종위치값)
+        const timer = setInterval(function(){
+          if(startx < targetx){
+            startx += 10; // 10 20 30 ... 증가
+          }else{
+            startx = targetx;
+            clearInterval();
+          }
+          target.style.left = startx + "px";
+        }, 10);
+      }
+    </script>
+  </head>
+
+  <body>
+    <div class="container">
+      <button id="queue">animate queue</button>
+
+      <div class="ball">
+
+      </div>
+    </div>
+  </body>
+</html>
