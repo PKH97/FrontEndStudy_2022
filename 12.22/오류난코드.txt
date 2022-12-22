@@ -1,0 +1,12 @@
+const timer = setInterval(function(){
+    if(target > current){ //스크롤이 아래방향 이동
+        if((target - current) > 8){ //t: 100, c:0
+            current += 8; // 8 16 24 32 ... 96까지
+        }else{
+            current = target; //최종타겟값 100
+            moving = false;
+            clearInterval(timer);
+            }
+        }else{ //스크롤이 위방향 이동
+    }
+}, 1);
