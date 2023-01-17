@@ -1,0 +1,69 @@
+< 웹브라우저 정보 저장 -> 쿠키(cookie) >
+[cookie-parser 모듈]
+    설치: npm i cookie-parser
+
+    요청된 쿠키를 쉽게 사용할 수 있도록 도와주는 모듈.
+    express(req, res) 객체에 cookie를 사용할 수 있도록 기능을 부여
+
+    cookieParser(): 일반 쿠키르 사용하는 경우
+    cookieParser('암호화하기 위한 문자'): 암호화된 쿠키를 사용하는 경우
+
+[쿠키 설정하기]
+    res.cookie('키', '값', {
+        쿠키 생성 옵션
+    });
+    => 쿠키생성 옵션
+    maxAge: 만료 시간을 밀리초 단위로 설정
+    expires: 만료 시간을 GMT 시간으로 설정
+    path: cookie의 경로를 설정. 기본설정은 "/" 입니다.
+    
+[쿠키 조회하기]
+    req.cookie.cookie키 : 일반 쿠키
+    req.signedCookie.cookie키 : 암호화된 쿠키
+
+[쿠키 삭제하기]
+    res.clearCookie('키', {path: '경로'});
+
+
+<<<<<<<<<<<<<<<<<<< - memo - >>>>>>>>>>>>>>>>>>>>
+
+
+< 데이터베이스 정보 저장 -> 세션(session) >
+[express-session 모듈]
+    express에서 세션을 관리하기위해 사용하는 미들웨어 모듈입니다.
+
+[세션 선언]
+    app.use(session({세션모듈의 옵션}));
+    -> 세션 모듈의 옵션
+    secret: 쿠키를 임의로 변조하는 것을 방지하기 위한 값
+            이 값을 통하여 세션을 암호화하여 저장
+    resave: 세션을 언제나 저장할지 지정하는 값
+            이 값을 false로 하는것을 권장하고 필요에 따라 true로 설정하기도 함
+    saveUninitializad
+    : 세션이 저장되기 전에 saveUninitializad 상태로 미리 만들어서 저장
+
+[세션 초기 설정]
+    let 세션객체명 = req.session;
+    세션객체명.변수명 = 값;
+
+    let sess = req.session;
+    sess.userid = 'apple';
+
+[세션 변수 사용]
+    세션객체명.변수명;
+    console.log(sees.userid);
+
+[세션 삭제]
+    req.session.destory(() => {
+        세션 삭제시 처리할 문장;
+    });
+
+
+<<<<<<<<<<<<<<<<<<< - memo - >>>>>>>>>>>>>>>>>>>>
+
+
+둘의 차이점: 보안과 속도가 가장 큰 차이점. 
+    쿠키- 속도 빠름/보안 나쁨
+    세션- 속도 느림/보안 좋음
+
+
