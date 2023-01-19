@@ -1,0 +1,131 @@
+쿠키는 웹브라우저에 특정위치에 정보가 저장
+세션은 서버에 사용자 정보 저장되는 방식
+보안은 세션에 저장
+자동완성이나 사용자가 열었을때 문제가 없다면 쿠키에 저장, 하지만 제한적임
+
+NoSQL
+Not only SQL의 약자
+기존의 RDBMS(관계형 데이터베이스)의 한계를 극복하기 위해 만들어진 새로운 형태의 데이터베이스
+관계형 DB가 아니므로 RDBMS처럼 고정된 스키마 및 JOIN문이 존재하지 않습니다.
+
+RDBMS(관계형 데이터베이스)
+데이터가 하나 이상의 열과 행의 테이블(또는 '관계')에 저장되어 서로 다른 데이터 구조가
+어떻게 관련되어 있는지 쉽게 파악하고 이해할 수 있도록 사전 정의도니 관계로 데이터를 구성하는
+정보 모음입니다. 관계는 이러한 테이블 간의 상호작용을 기반으로 설정되는
+여러 테이블 간의 논리적 연결
+
+mongoDB 특징
+-NoSQL이기 때문에 관계형 데이터베이스의 테이블 개념이 없다
+- 데이터가 모인 하나의 단위를 컬렉션이라고 부른다
+- 데이터를 정해 놓은 컬럼의 형태로 컬렉션에 넣어야 한다는 제약X
+- mongoDB의 데이터베이스는 컬렉션의 집합이라고 할 수 있음
+- 컬렉션은 여러개의 문서객체를 가질 수 있다
+  문서 객체는 속성들의 집합으로서 한 사람의 이름과 나이들을 저장라고 있는
+  하나의 문서 객체를 만든 후 그 안에 자바스크립트 객체와 같이
+  속성들을 추가 저장 할 수 있다.
+
+mongoDB 환경설정
+파일탐색기-> 내 PC -> 마우스 오른쪽 버튼(속성) -> 고급 시스템 설정 -> 환경변수 ->
+시스템 변수 -> path -> 편집 -> 새로만들기 -> C:\program Files\MongoDB\Server\4.4\bin
+(mongoDB 위치)
+
+설치확인
+cmd -> mongo
+
+[데이터베이스 확인]
+show dbs;
+
+[데이터베이스 생성 및 선택]
+use 데이터베이스명;
+use fontendb;
+* 데이터베이스가 없으면 생성, 있으면 선택
+* 데이터베이스의 자료가 없을 경우 show dbs에서 나타나지 않는다
+
+[컬렉션 생성]
+db.createCollection('컬렉션명');
+db.createCollection('testCollection');
+
+[컬렉션 확인]
+show collection;
+
+[컬렉션 삭제]
+db.컬렉션명.drop();
+db.testCollection.drop();
+
+[연습용 컬렉션 만들기]
+db.createCollection('member');
+
+[document 추가]
+db.컬렉션명.insert(객체);
+
+*_id는 각 document의 유일한 키로 쓰이는 값
+
+[document 확인]
+db.컬렉션명.find();
+db.컬렉션명.find().pretty();
+db.컬렉션명.find(객체).pretty();
+
+db.member.find(); //데이터베이스의 자료를 있는 그대로 보임
+db.member.find().pretty(); //데이터베이스의 자료를 객체명으로 보임
+db.member.find({"userid":"apple"}).pretty(); 
+
+document 비교연산
+$eq: 주어진 값과 일치하는 값을 찾음
+$gt: 주어진 값보다 큰 값을 찾음
+$gte: 주어진 값보다 크거나 같은 값을 찾음
+$lt: 주어진 값보다 작은 값을 찾음
+$lte: 주어진 값보다 작거나 같음 값을 찾음
+$ne: 주어진 값과 일치 하지 않은 값을 찾음
+$in: 주어진 배열 안에 속하는 값을 찾음
+$nin: 주어진 배열 안에 속하지 않는 값을 찾음
+
+문제.1
+포인트가 1700점 이상인 멤버를 검색
+db.member.find({point:{$gte:1700}}).pretty();
+
+document 논리연산
+$or: 주어진 조건 중 하나라도 true일 때 true인 결과를 찾음
+$and: 주어진 모든 조건이 true일때 true인 결과를 찾음
+$not: 주어진 조건이 false일때 true, ture일때 false인 결과를 찾음
+
+문제.2
+아이디가"melon"이고 이름이 "이메론"인 멤버를 검색합니다
+db.member.find({$and:[{"userid":"melon"}, {"username":"이메론"}]}).pretty();
+->조건이 2가지 이상이면 배열이기 때문에 $and:[]로 표시
+-> 객체는 무조건 {}
+
+실습
+1.이름이 '안카도'인 멤버를 검색합니다.
+db.member.find({"username":"안카도"}).pretty();
+-> 정답
+
+2.포인트가 1800보다 작거나 같은 멤버를 검색
+db.member.find({point:{$lte:1800}}).pretty();
+-> db.member.find({"point":{$lte:1800}}).pretty();
+
+3.아이디가 'apple'이거나 'banana'인 멤버를 검색
+db.member.find({$or:[{userid:apple}, {userid:banana}]}).pretty();
+->db.member.find({$or:[{"userid":"apple"},{"userid":"banana"}]}).pretty();
+
+4.성별이 '여자'이고 포인트가 1700이상인 멤버를 검색
+db.member.find({$and:[{gender:여자}, {point:{$gte:1700}}]}).pretty();
+-> db.member.find({$and:[{"gender":"여자"}, {"point":{$gte:1700}}]}).pretty();
+
+
+document 정렬
+db.컬렉션명.find().sort(객체)
+*객체
+{key:value} -> key는 데이터의 filed이름, value의 값은 1(오름차순) 또는 -1(내림차순)
+여러 key를 입력할 수 있고, 먼저 입력한 key가 우선권을 갖음.
+db.member.find().sort().pretty();
+db.member.find().sort({"_id":-1}).pretty();
+
+document의 개수 제한
+limit(): 출력할 데이터 개수를 제한 할때 사용
+db.컬렉션명.find().limit(출력할 개수)
+db.컬렉션명.find().limit(3).pretty();
+
+document 데이터 생략 후 출력
+skip(): 출력할 데이터의 시작부분을 설정할 경우 사용
+db.컬렉션명.find().skip(생략할 개수)
+db.컬렉션명.find().skip(2).pretty();
