@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-
+import React, { useReducer, useState } from "react";
+/*
 function Counter() {
     const [number, setNumber] = useState(0);
     const plus = () => {
@@ -7,6 +7,38 @@ function Counter() {
     }
     const minus = () => {
         setNumber(number - 1);
+    }
+
+    return(
+        <div>
+           <h2>{number}</h2>
+           <button onClick={plus}>더하기</button>
+           <button onClick={minus}>빼기</button>
+        </div>
+    );
+}
+*/
+
+function reducer() {
+    switch(action.type){
+        case 'INCREMENT':
+            return state + 1;
+        case 'DECREMENT':
+            return state - 1
+        default:
+            return state;
+    }
+}
+
+function Counter() {
+    const [number, dispatch] = useReducer(reducer,0);
+    //dispatch-> 이벤트생성
+
+    const plus = () => {
+        dispatch({type: 'INCREMENT'});
+    }
+    const minus = () => {
+        dispatch({type: 'DECREMENT'});
     }
 
     return(

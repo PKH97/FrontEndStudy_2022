@@ -1,0 +1,41 @@
+.header {
+    width: 100%;
+    height: 120px;
+    background-color: yellowgreen;
+}
+
+.headerIn {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 auto;
+    width: 1500px;
+    height: 120px;
+    background-color: rgb(133, 145, 108);
+}
+
+.logo {
+    width: 120px;
+    height: 120px;
+    background-color: yellow;
+}
+
+.nav {
+    display: flex;
+    justify-content: space-between;
+    width: 70%;
+    height: 120px;
+    background-color: aquamarine;
+    align-items: center;
+}
+
+/* .nav li {
+
+} */
+
+/* .footerIn {
+    float: left;
+    width: 1500px;
+    height: 200px;
+    background-color: rgb(239, 200, 239);
+} */
+/* -> 자식 컴포넌트의 내용을 부모 컴포넌트에서 재정의할 경우 부모의 것이 우선순위 */
