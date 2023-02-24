@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div style="margin:'50px'; width: '220px'; border: '2px solid #000'; padding: '20px';">
+        <form id="form">
+            <p><label>Name</label><input type="text" name="to_name" /></p>
+            <p><label>Email</label><input type="text" name="from_name" /></p>
+            <p><label>Message1: </label></p>
+            <p><textarea name="message"></textarea></p>
+            <p><label>Message2: </label></p>
+            <p><textarea name="message"></textarea></p>
+            <hr/><hr/>
+            <input type="submit" value="Send" id="button"/>
+        </form>
+    </div>
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script>
+        emailjs.init('qp8OJMYDpmdFuzZYJ'); // API key값 설정
+
+        const btn = document.getElementsById('button');
+
+        document.getElementById('from').addEventListener('submit', function (event) {
+            event.preventDefault(); // 새로고침방지
+
+            btn.value = 'Sending...';
+            const serviceID = 'service_bqje2xj';
+            const templateID = 'template_wh3luiq';
+
+            emailjs.sendForm(serviceID, templateID, this)
+                .then(() => {
+                    btn.value = 'Send Email';
+                    alert("매일보내기 성공");
+                }, (err) => {
+                    btn.value = "Send Email";
+                    alert(Json.stringify(err));
+                });
+        });
+    </script>
+</body>
+</html>
