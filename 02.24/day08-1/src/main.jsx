@@ -1,11 +1,7 @@
 import React from "react";
-import './App.css';
-import axios from 'axios';
-//yarn add axios -> api연결에 필수
 import Movie from "./movies";
-import MainPage from "./main";
 
-class App extends React.Component {
+class MainPage extends React.Component {
     //초기값
     state = {
         isLoading: true, // 데이터 읽어들이는 상태값
@@ -67,4 +63,12 @@ class App extends React.Component {
     }
 }
 
-export default App;
+function Main() {
+    return(
+        <div>
+            
+        </div>
+    );
+}
+
+export default Main;

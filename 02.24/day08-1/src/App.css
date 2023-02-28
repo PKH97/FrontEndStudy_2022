@@ -1,38 +1,74 @@
-.App {
-  text-align: center;
+body {
+  background-color: #2f2f2f;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.container {
+  height: 100%;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.header {
+  width: 80%;
+  height: 120px;
+  background-color: #fff;
+  border-radius: 5px 5px 0 0;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.movies {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  padding: 50px;
+  padding-top: 70px;
+  width: 80px;
+}
+
+.movie {
+  width: 45%;
+  background-color: #fff;
+  margin-bottom: 70px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  font-weight: 300;
+  padding: 20px;
+  border-radius: 5px;
+  color: #b2b3bc;
+  box-shadow: 
+  0 13px -5px rgba(50, 50, 93, 0.25),
+  0 8px 16px -8px rgba(0, 0, 0, 0.3),
+  0 -6px 16px -5px rgba(0, 0, 0, 0.025);
+
+}
+
+.movie img {
+  position: relative;
+  top: -50px;
+  max-width: 150px;
+  width: 100%;
+  margin-right: 30px;
+  box-shadow: 
+  0 30px 60px -12px rgba(50, 50, 93, 0.25),
+  0 8px 63px -18px rgba(0, 0, 0, 0.3),
+  0 -12px 36px -8px rgba(0, 0, 0, 0.025),
+}
+
+.movie .movie_year,
+.movie .movie_title {
+  margin:  0;
+  font-weight: 300;
+}
+
+.movie .movie_title {
+  margin-bottom: 5px;
+  font-size: 20px;
+  color: #2c2c2c;
+}
+
+.movie .movie_year {
+  margin-right: 10px;
+  font-size: 14px;
 }
